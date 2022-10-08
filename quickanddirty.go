@@ -69,6 +69,9 @@ func MoveFile(src, dst string) {
 }
 
 func Assert(errOk any, args ...any) {
+	if errOk == nil {
+		return
+	}
 	switch v := errOk.(type) {
 	case error:
 		if v != nil {
