@@ -25,6 +25,14 @@ func FileExist(filename string) bool {
 	return err == nil
 }
 
+func FileSize(filename string) (int64, bool) {
+	st, err := os.Stat(filename)
+	if err != nil {
+		return 0, false
+	}
+	return st.Size(), true
+}
+
 func FileModTime(filename string) time.Time {
 	st, err := os.Stat(filename)
 	Assert(err, "stat", filename)
