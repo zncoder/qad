@@ -47,6 +47,11 @@ func NewFile(filename string, mode fs.FileMode) *os.File {
 	return f
 }
 
+func RemoveFile(filename string) {
+	err := os.Remove(filename)
+	Assert(err, "remove", filename)
+}
+
 func MoveFile(src, dst string) {
 	err := os.Rename(src, dst)
 	if err == nil {
