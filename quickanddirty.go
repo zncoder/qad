@@ -79,6 +79,8 @@ func MoveFile(src, dst string) {
 
 	err = os.Rename(tmpfile, dst)
 	Assert(err, "rename tmpfile", tmpfile, "=>", dst)
+
+	RemoveFile(src)
 }
 
 func Assert(errOk any, args ...any) {
